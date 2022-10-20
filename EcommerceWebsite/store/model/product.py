@@ -9,5 +9,6 @@ class Product(models.Model):
     category = models.ForeignKey(Category, on_delete=models.CASCADE, default=1)
     image = models.ImageField(upload_to='uploads/products/')
 
-    def __str__(self):
-        return self.name
+    @staticmethod
+    def get_all_products():
+        return Product.objects.all()
